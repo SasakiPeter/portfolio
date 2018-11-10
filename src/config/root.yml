@@ -1,0 +1,15 @@
+- name: Home
+  to: /
+  fa: fas fa-home
+
+- name: Blog
+  to: /blog/
+  fa: fas fa-file-prescription
+
+- name: Products
+  to: /products/
+  fa: fas fa-capsules
+
+- name: About
+  to: /about/
+  fa: fas fa-id-card-alt

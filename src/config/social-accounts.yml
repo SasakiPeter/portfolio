@@ -1,0 +1,14 @@
+- name: Email
+  label: reacterpeter@gmail.com
+  href: mailto:reacterpeter@gmail.com
+  fa: fas fa-envelope
+
+- name: Github
+  label: "@sasakipeter"
+  href: https://github.com/sasakipeter
+  fa: fab fa-github
+
+- name: Twitter
+  label: "@saishikisanchu"
+  href: https://twitter.com/saishikisanchu
+  fa: fab fa-twitter

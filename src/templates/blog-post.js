@@ -1,24 +1,25 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import Helmet from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
+import React from "react";
+import PropTypes from "prop-types";
+import { kebabCase } from "lodash";
+import Helmet from "react-helmet";
+import { graphql, Link } from "gatsby";
+import Layout from "../components/Organisms/Layout";
+import Content, { HTMLContent } from "../components/Content";
 
 export const BlogPostTemplate = ({
   content,
   contentComponent,
   description,
   tags,
+  image,
   title,
-  helmet,
+  helmet
 }) => {
-  const PostContent = contentComponent || Content
+  const PostContent = contentComponent || Content;
 
   return (
     <section className="section">
-      {helmet || ''}
+      {helmet || ""}
       <div className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
@@ -26,6 +27,7 @@ export const BlogPostTemplate = ({
               {title}
             </h1>
             <p>{description}</p>
+            <img src={image} alt="" />
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -43,19 +45,22 @@ export const BlogPostTemplate = ({
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet),
-}
+  image: PropTypes.string,
+  // helmet: PropTypes.instanceOf(Helmet)
+  helmet: PropTypes.object
+};
 
 const BlogPost = ({ data }) => {
-  const { markdownRemark: post } = data
+  // この記述は、const { post }=data.markdownRemarkと同じ
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
@@ -63,22 +68,40 @@ const BlogPost = ({ data }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
+        helmet={
+          <Helmet
+            title={`${post.frontmatter.title} | Blog`}
+            meta={[
+              { name: "description", content: post.frontmatter.description },
+              { property: "og:title", content: post.frontmatter.title },
+              {
+                property: "og:description",
+                content: post.frontmatter.description
+              },
+              {
+                property: "og:image",
+                content: `${origin}${post.frontmatter.image}`
+              }
+            ]}
+          />
+        }
         tags={post.frontmatter.tags}
+        image={post.frontmatter.image}
         title={post.frontmatter.title}
       />
     </Layout>
-  )
-}
+  );
+};
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object,
-  }),
-}
+    markdownRemark: PropTypes.object
+  })
+};
 
-export default BlogPost
+export default BlogPost;
 
+// 本来、pagesコンポーネント以外からはqueryにアクセスできないが、node.jsからgraphqlにアクセスしているから、ちゃんとデータを取ってこられていると思う
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
@@ -89,7 +112,8 @@ export const pageQuery = graphql`
         title
         description
         tags
+        image
       }
     }
   }
-`
+`;

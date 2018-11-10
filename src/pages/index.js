@@ -1,79 +1,134 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout'
+import React from "react";
+import PropTypes from "prop-types";
+import { Link, graphql } from "gatsby";
+import Layout from "../components/Organisms/Layout";
 
-export default class IndexPage extends React.Component {
-  render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+import { css } from "react-emotion";
 
-    return (
-      <Layout>
-        <section className="section">
-          <div className="container">
-            <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">Latest Stories</h1>
-            </div>
-            {posts
-              .map(({ node: post }) => (
-                <div
-                  className="content"
-                  style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
-                  key={post.id}
-                >
-                  <p>
-                    <Link className="has-text-primary" to={post.fields.slug}>
-                      {post.frontmatter.title}
-                    </Link>
-                    <span> &bull; </span>
-                    <small>{post.frontmatter.date}</small>
-                  </p>
-                  <p>
-                    {post.excerpt}
-                    <br />
-                    <br />
-                    <Link className="button is-small" to={post.fields.slug}>
-                      Keep Reading →
-                    </Link>
-                  </p>
-                </div>
-              ))}
-          </div>
-        </section>
-      </Layout>
-    )
+import classNames from "classnames";
+import { withStyles } from "@material-ui/core/styles";
+import {
+  Avatar,
+  Button,
+  Card,
+  CardActionArea,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Divider,
+  Grid,
+  GridList,
+  GridListTile,
+  GridListTileBar,
+  Icon,
+  IconButton,
+  ListSubheader,
+  Typography
+} from "@material-ui/core";
+import SocialAccounts from "../components/Molecules/SocialAccounts";
+import Products from "../components/Molecules/Products";
+
+// とりあえず、ここにガリガリ書いてから、コンポーネント分ける方針で
+const styles = {
+  avatar: {
+    margin: "auto",
+    width: 100,
+    height: 100
+  },
+  text: {
+    textAlign: "center"
   }
-}
+};
+
+const IndexPage = props => {
+  const { classes, data } = props;
+  return (
+    <Layout>
+      <Grid container spacing={24} alignItems="center" direction="column">
+        <Grid item xs={12}>
+          <Avatar
+            alt="Sasaki Peter"
+            src="/img/icon.jpg"
+            className={classes.avatar}
+          />
+          <Typography variant="h6" component="h2" className={classes.text}>
+            name
+          </Typography>
+        </Grid>
+        <Divider />
+        <Grid item xs={12}>
+          <Typography
+            // variant="body1"
+            component="p"
+            className={classes.text}
+          >
+            Be the one.
+          </Typography>
+        </Grid>
+        <Divider />
+        <Grid item xs={12}>
+          {/* 興味ある分野を書くところ */}
+          <Grid container spacing={24}>
+            <Grid item xs>
+              <Button variant="contained" color="primary">
+                icon
+              </Button>
+            </Grid>
+          </Grid>
+        </Grid>
+        <Divider />
+        <Grid item xs={12}>
+          <SocialAccounts />
+        </Grid>
+        <Divider />
+        <Grid item xs={12}>
+          {/* <Typography variant="h6" component="h3">
+            Products
+          </Typography> */}
+          <Products />
+        </Grid>
+      </Grid>
+    </Layout>
+  );
+};
 
 IndexPage.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
-}
+  classes: PropTypes.object.isRequired
+};
+
+export default withStyles(styles)(IndexPage);
+
+// IndexPage.propTypes = {
+//   data: PropTypes.shape({
+//     allMarkdownRemark: PropTypes.shape({
+//       edges: PropTypes.array
+//     })
+//   })
+// };
 
 export const pageQuery = graphql`
-  query IndexQuery {
-    allMarkdownRemark(
-      sort: { order: DESC, fields: [frontmatter___date] },
-      filter: { frontmatter: { templateKey: { eq: "blog-post" } }}
-    ) {
+  query {
+    allSocialAccountsYaml {
       edges {
         node {
-          excerpt(pruneLength: 400)
           id
-          fields {
-            slug
-          }
-          frontmatter {
-            title
-            templateKey
-            date(formatString: "MMMM DD, YYYY")
-          }
+          name
+          label
+          href
+          fa
+        }
+      }
+    }
+    allProductsYaml {
+      edges {
+        node {
+          name
+          description
+          github
+          href
+          image
         }
       }
     }
   }
-`
+`;
