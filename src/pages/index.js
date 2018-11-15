@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link, graphql } from "gatsby";
 import Layout from "../components/Organisms/Layout";
+import Paper from "../components/Atoms/Paper";
 
 import { css } from "react-emotion";
 
@@ -44,50 +45,52 @@ const IndexPage = props => {
   const { classes, data } = props;
   return (
     <Layout>
-      <Grid container spacing={24} alignItems="center" direction="column">
-        <Grid item xs={12}>
-          <Avatar
-            alt="Sasaki Peter"
-            src="/img/icon.jpg"
-            className={classes.avatar}
-          />
-          <Typography variant="h6" component="h2" className={classes.text}>
-            name
-          </Typography>
-        </Grid>
-        <Divider />
-        <Grid item xs={12}>
-          <Typography
-            // variant="body1"
-            component="p"
-            className={classes.text}
-          >
-            Be the one.
-          </Typography>
-        </Grid>
-        <Divider />
-        <Grid item xs={12}>
-          {/* 興味ある分野を書くところ */}
-          <Grid container spacing={24}>
-            <Grid item xs>
-              <Button variant="contained" color="primary">
-                icon
-              </Button>
+      <Paper>
+        <Grid container spacing={24} alignItems="center" direction="column">
+          <Grid item xs={12}>
+            <Avatar
+              alt="Sasaki Peter"
+              src="/img/icon.jpg"
+              className={classes.avatar}
+            />
+            <Typography variant="h6" component="h2" className={classes.text}>
+              name
+            </Typography>
+          </Grid>
+          <Divider />
+          <Grid item xs={12}>
+            <Typography
+              // variant="body1"
+              component="p"
+              className={classes.text}
+            >
+              Be the one.
+            </Typography>
+          </Grid>
+          <Divider />
+          <Grid item xs={12}>
+            {/* 興味ある分野を書くところ */}
+            <Grid container spacing={24}>
+              <Grid item xs>
+                <Button variant="contained" color="primary">
+                  icon
+                </Button>
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-        <Divider />
-        <Grid item xs={12}>
-          <SocialAccounts />
-        </Grid>
-        <Divider />
-        <Grid item xs={12}>
-          {/* <Typography variant="h6" component="h3">
+          <Divider />
+          <Grid item xs={12}>
+            <SocialAccounts />
+          </Grid>
+          <Divider />
+          <Grid item xs={12}>
+            {/* <Typography variant="h6" component="h3">
             Products
           </Typography> */}
-          <Products />
+            <Products />
+          </Grid>
         </Grid>
-      </Grid>
+      </Paper>
     </Layout>
   );
 };
@@ -108,26 +111,9 @@ export default withStyles(styles)(IndexPage);
 
 export const pageQuery = graphql`
   query {
-    allSocialAccountsYaml {
-      edges {
-        node {
-          id
-          name
-          label
-          href
-          fa
-        }
-      }
-    }
-    allProductsYaml {
-      edges {
-        node {
-          name
-          description
-          github
-          href
-          image
-        }
+    site {
+      siteMetadata {
+        title
       }
     }
   }
