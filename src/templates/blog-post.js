@@ -91,7 +91,7 @@ const BlogPost = ({ data }) => {
               },
               {
                 property: "og:image",
-                content: `${origin}${post.frontmatter.image}`
+                content: post.frontmatter.image
               }
             ]}
           />
