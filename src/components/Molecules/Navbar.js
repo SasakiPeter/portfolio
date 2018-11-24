@@ -1,6 +1,5 @@
 import React from "react";
-import { Link, StaticQuery } from "gatsby";
-// import github from "../img/github-icon.svg";
+import { Link, StaticQuery, graphql } from "gatsby";
 import logo from "../../img/icon.jpg";
 import { css } from "react-emotion";
 import { rhythm } from "../../utils/typography";
@@ -18,12 +17,7 @@ import {
   Toolbar,
   Typography
 } from "@material-ui/core";
-import Avatar from "@material-ui/core/Avatar";
 import MenuIcon from "@material-ui/icons/Menu";
-import HomeIcon from "@material-ui/icons/Home";
-import CodeIcon from "@material-ui/icons/Code";
-// import BeachAccessIcon from '@material-ui/icons/BeachAccess';
-// import Divider from "@material-ui/core/Divider";
 
 const styles = {
   root: {

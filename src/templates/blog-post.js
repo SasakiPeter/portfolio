@@ -2,55 +2,66 @@ import React from "react";
 import PropTypes from "prop-types";
 import { kebabCase } from "lodash";
 import Helmet from "react-helmet";
-import { graphql, Link } from "gatsby";
-import Layout from "../components/Organisms/Layout";
-import Content, { HTMLContent } from "../components/Content";
+import { graphql, navigate } from "gatsby";
+import { Paper } from "../components/Atoms";
+import { Layout, Markdown } from "../components/Organisms";
+import { Chip, Typography } from "@material-ui/core";
+import { css } from "react-emotion";
 
 export const BlogPostTemplate = ({
   content,
-  contentComponent,
   description,
   tags,
   image,
   title,
   helmet
 }) => {
-  const PostContent = contentComponent || Content;
-
+  console.log(content);
   return (
-    <section className="section">
-      {helmet || ""}
-      <div className="container content">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
-              {title}
-            </h1>
-            <p>{description}</p>
-            <img src={image} alt="" />
-            <PostContent content={content} />
-            {tags && tags.length ? (
-              <div style={{ marginTop: `4rem` }}>
-                <h4>Tags</h4>
-                <ul className="taglist">
-                  {tags.map(tag => (
-                    <li key={tag + `tag`}>
-                      <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ) : null}
-          </div>
-        </div>
-      </div>
+    <section>
+      <Paper>
+        {helmet || ""}
+        <Typography component="h1" variant="h3">
+          {title}
+        </Typography>
+        <Typography component="p">{description}</Typography>
+        <img src={image} alt="" />
+        {tags && tags.length ? (
+          // marginの大きさが気にくわないので、要リファクタリング
+          <ul
+            className={css`
+              list-style: none;
+              padding: 0;
+              display: flex;
+              flex-wrap: wrap;
+            `}
+          >
+            {tags.map(tag => (
+              <li
+                key={tag + `tag`}
+                className={css`
+                  margin-right: 5px;
+                `}
+              >
+                <Chip
+                  label={tag}
+                  component="a"
+                  clickable
+                  onClick={() => navigate(`/tags/${kebabCase(tag)}/`)}
+                />
+              </li>
+            ))}
+          </ul>
+        ) : null}
+        <Markdown content={content} />
+      </Paper>
     </section>
   );
 };
 
 BlogPostTemplate.propTypes = {
-  content: PropTypes.node.isRequired,
-  contentComponent: PropTypes.func,
+  // content: PropTypes.node.isRequired,
+  // contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
   image: PropTypes.string,
@@ -59,14 +70,14 @@ BlogPostTemplate.propTypes = {
 };
 
 const BlogPost = ({ data }) => {
-  // この記述は、const { post }=data.markdownRemarkと同じ
   const { markdownRemark: post } = data;
 
   return (
     <Layout>
       <BlogPostTemplate
-        content={post.html}
-        contentComponent={HTMLContent}
+        // content={post.html}
+        content={post.htmlAst}
+        // contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
           <Helmet
@@ -98,15 +109,14 @@ BlogPost.propTypes = {
     markdownRemark: PropTypes.object
   })
 };
-
 export default BlogPost;
 
-// 本来、pagesコンポーネント以外からはqueryにアクセスできないが、node.jsからgraphqlにアクセスしているから、ちゃんとデータを取ってこられていると思う
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
       html
+      htmlAst
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title

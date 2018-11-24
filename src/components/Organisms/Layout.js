@@ -2,31 +2,25 @@ import React from "react";
 import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 
-import Navbar from "../Molecules/Navbar";
-import Footer from "../Molecules/Footer";
 import theme from "../../utils/theme";
-import {
-  MuiThemeProvider,
-  CssBaseline,
-  Paper,
-  Typography
-} from "@material-ui/core";
+import { Footer, Navbar } from "../Molecules";
+import { MuiThemeProvider, CssBaseline, Typography } from "@material-ui/core";
 import "../all.sass";
 
-const TemplateWrapper = ({ children }) => {
-  // const { children } = props;
-  return (
-    <React.Fragment>
-      <CssBaseline />
-      <MuiThemeProvider theme={theme}>
-        <Helmet title="Home | Pharmaceutical Programmer Portfolio" />
-        <Navbar />
-        {children}
-        {/* <Footer /> */}
-      </MuiThemeProvider>
-    </React.Fragment>
-  );
-};
+const TemplateWrapper = ({ children }) => (
+  <React.Fragment>
+    <CssBaseline />
+    <MuiThemeProvider theme={theme}>
+      <Helmet title="Home | Pharmaceutical Programmer Peter" />
+      <Typography component="p" variant="h5" color="error">
+        My website is still under construction, so come back later.
+      </Typography>
+      <Navbar />
+      {children}
+      {/* <Footer /> */}
+    </MuiThemeProvider>
+  </React.Fragment>
+);
 
 // TemplateWrapper.propTypes = {
 //   classes: PropTypes.object.isRequired

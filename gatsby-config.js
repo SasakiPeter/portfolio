@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: "Phamaceutical Programmer Blog"
+    title: "Pharmaceutical Programmer Peter"
   },
   plugins: [
     "gatsby-plugin-react-helmet",
@@ -39,9 +39,22 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: []
+        plugins: [`gatsby-remark-smartypants`] // これあんまり意味ない？
       }
     },
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: "Phamaceutical Programmer",
+    //     short_name: "Phamaceutical Programmer",
+    //     start_url: "/",
+    //     background_color: "#fafafa",
+    //     theme_color: "#adf3ff",
+    //     display: "minimal-ui",
+    //     icon: `src/img/icon.jpg`
+    //   }
+    // },
+    `gatsby-plugin-offline`,
     {
       resolve: "gatsby-plugin-netlify-cms",
       options: {

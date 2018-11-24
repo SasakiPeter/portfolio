@@ -1,35 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
+import { Paper } from "../components/Atoms";
 import Layout from "../components/Organisms/Layout";
-import Paper from "../components/Atoms/Paper";
 
 import { css } from "react-emotion";
 
 import classNames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
-import {
-  Avatar,
-  Button,
-  Card,
-  CardActionArea,
-  CardActions,
-  CardContent,
-  CardMedia,
-  Divider,
-  Grid,
-  GridList,
-  GridListTile,
-  GridListTileBar,
-  Icon,
-  IconButton,
-  ListSubheader,
-  Typography
-} from "@material-ui/core";
+import { Avatar, Button, Divider, Grid, Typography } from "@material-ui/core";
 import SocialAccounts from "../components/Molecules/SocialAccounts";
 import Products from "../components/Molecules/Products";
 
-// とりあえず、ここにガリガリ書いてから、コンポーネント分ける方針で
 const styles = {
   avatar: {
     margin: "auto",
@@ -53,17 +35,13 @@ const IndexPage = props => {
               src="/img/icon.jpg"
               className={classes.avatar}
             />
-            <Typography variant="h6" component="h2" className={classes.text}>
-              name
+            <Typography component="h2" variant="h5" className={classes.text}>
+              Sasaki Peter
             </Typography>
           </Grid>
           <Divider />
           <Grid item xs={12}>
-            <Typography
-              // variant="body1"
-              component="p"
-              className={classes.text}
-            >
+            <Typography component="p" variant="body1" className={classes.text}>
               Be the one.
             </Typography>
           </Grid>
@@ -84,9 +62,6 @@ const IndexPage = props => {
           </Grid>
           <Divider />
           <Grid item xs={12}>
-            {/* <Typography variant="h6" component="h3">
-            Products
-          </Typography> */}
             <Products />
           </Grid>
         </Grid>

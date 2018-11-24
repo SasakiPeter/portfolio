@@ -1,46 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import Layout from "../components/Organisms/Layout";
-import Content, { HTMLContent } from "../components/Content";
+import { Paper } from "../components/Atoms";
+import { Layout, Markdown } from "../components/Organisms";
+import { Typography } from "@material-ui/core";
 
-export const AboutPageTemplate = ({ title, content, contentComponent }) => {
-  const PageContent = contentComponent || Content;
-
-  return (
-    <section className="section section--gradient">
-      <div className="container">
-        <div className="columns">
-          <div className="column is-10 is-offset-1">
-            <div className="section">
-              <h2 className="title is-size-3 has-text-weight-bold is-bold-light">
-                {title}
-              </h2>
-              <PageContent className="content" content={content} />
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
+export const AboutPageTemplate = ({ title, content }) => (
+  <section>
+    <Paper>
+      <Typography component="h2" variant="h4">
+        {title}
+      </Typography>
+      <Markdown content={content} />
+    </Paper>
+  </section>
+);
 
 AboutPageTemplate.propTypes = {
-  title: PropTypes.string.isRequired,
-  content: PropTypes.string,
-  contentComponent: PropTypes.func
+  title: PropTypes.string.isRequired
+  // content: PropTypes.string,
+  // contentComponent: PropTypes.func
 };
 
 const AboutPage = ({ data }) => {
-  // console.log(data);
   const { markdownRemark: post } = data;
-
   return (
     <Layout>
       <AboutPageTemplate
-        contentComponent={HTMLContent}
         title={post.frontmatter.title}
-        content={post.html}
+        content={post.htmlAst}
       />
     </Layout>
   );
@@ -55,7 +43,7 @@ export default AboutPage;
 export const aboutPageQuery = graphql`
   query AboutPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      html
+      htmlAst
       frontmatter {
         title
       }

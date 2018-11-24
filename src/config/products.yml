@@ -3,21 +3,11 @@
   github: https://github.com/SasakiPeter/i-know-your-thinking
   href: https://sasakipeter.github.io/i-know-your-thinking/
   image: /img/Numer0nApp.png
+  language: React
 
-- name: Numer0nApp
-  description: ヌメロンアプリです
-  github: https://github.com/SasakiPeter/i-know-your-thinking
-  href: https://sasakipeter.github.io/i-know-your-thinking/
-  image: /img/Numer0nApp.png
-
-- name: Numer0nApp
-  description: ヌメロンアプリです
-  github: https://github.com/SasakiPeter/i-know-your-thinking
-  href: https://sasakipeter.github.io/i-know-your-thinking/
-  image: /img/Numer0nApp.png
-
-- name: Numer0nApp
-  description: ヌメロンアプリです
-  github: https://github.com/SasakiPeter/i-know-your-thinking
-  href: https://sasakipeter.github.io/i-know-your-thinking/
-  image: /img/Numer0nApp.png
+- name: ToDoApp
+  description: Todoアプリです
+  github: https://github.com/SasakiPeter/react-todoapp
+  href: https://sasakipeter.github.io/react-todoapp/
+  image: /img/TodoApp.png
+  language: React

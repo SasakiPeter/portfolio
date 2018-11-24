@@ -8,6 +8,7 @@ import {
   CardActions,
   CardContent,
   CardMedia,
+  Chip,
   Grid,
   Typography
 } from "@material-ui/core";
@@ -25,6 +26,7 @@ export default () => (
               github
               href
               image
+              language
             }
           }
         }
@@ -52,9 +54,11 @@ export default () => (
                 </CardContent>
               </CardActionArea>
               <CardActions>
+                <Chip label={node.language} />
                 <Button size="small" color="primary" href={node.github}>
                   GitHub
                 </Button>
+
                 {/* <Button size="small" color="secondary">
                   Learn More
                 </Button> */}

@@ -1,8 +1,8 @@
-- name: Home
+- name: Primary
   to: /
   fa: fas fa-home
 
-- name: Blog
+- name: Posts
   to: /blog/
   fa: fas fa-file-prescription
 
@@ -10,6 +10,6 @@
   to: /products/
   fa: fas fa-capsules
 
-- name: About
+- name: Profile
   to: /about/
   fa: fas fa-id-card-alt

@@ -10,4 +10,41 @@ tags:
 image: /img/chemex.jpg
 ---
 
-# hogehoge
+## hogehoge
+
+htmlAst 使えてる？？？？
+
+<name-of-component>children ですよ〜♪</name-of-component>
+
+- list
+- list
+- list
+- list
+- list
+
+hoge
+
+1. ordered list
+2. list
+3. list
+4. list
+5. list
+
+**bold**
+_italic_
+
+```
+$ cd hogehoge
+```
+
+> blockquotes hogehoge
+> hogehoge
+> fugafuga
+
+***
+
+| Tables        | Are           | Cool  |
+| ------------- | :-----------: | ----: |
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      | $12   |
+| zebra stripes | are neat      | $1    |
