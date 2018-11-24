@@ -39,7 +39,7 @@ module.exports = {
     {
       resolve: "gatsby-transformer-remark",
       options: {
-        plugins: [`gatsby-remark-smartypants`] // これあんまり意味ない？
+        plugins: []
       }
     },
     // {
