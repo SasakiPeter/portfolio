@@ -5,6 +5,7 @@ import Layout from "../components/Organisms/Layout";
 import { Paper } from "../components/Atoms";
 import { Post } from "../components/Molecules";
 import { Typography } from "@material-ui/core";
+import { css } from "react-emotion";
 
 class TagRoute extends React.Component {
   render() {
@@ -26,10 +27,14 @@ class TagRoute extends React.Component {
 
     return (
       <Layout>
-        <section>
+        <section
+          className={css`
+            padding: 16px 0;
+          `}
+        >
           <Paper>
             <Helmet title={`${tag} | ${title}`} />
-            <Typography component="h2" variant="h4">
+            <Typography component="h1" variant="h3">
               {tagHeader}
             </Typography>
           </Paper>

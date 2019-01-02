@@ -3,15 +3,31 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import { Paper } from "../components/Atoms";
 import { Layout, Markdown } from "../components/Organisms";
-import { Typography } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
+import { css } from "react-emotion";
 
-export const AboutPageTemplate = ({ title, content }) => (
-  <section>
+export const AboutPageTemplate = ({ title, date, content }) => (
+  <section
+    className={css`
+      padding: 16px 0;
+    `}
+  >
     <Paper>
-      <Typography component="h2" variant="h4">
-        {title}
-      </Typography>
-      <Markdown content={content} />
+      <Grid container spacing={16}>
+        <Grid item xs={12}>
+          <Typography component="h1" variant="h3">
+            {title}
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography component="p" variant="h5">
+            {date}
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <Markdown content={content} />
+        </Grid>
+      </Grid>
     </Paper>
   </section>
 );
@@ -28,6 +44,7 @@ const AboutPage = ({ data }) => {
     <Layout>
       <AboutPageTemplate
         title={post.frontmatter.title}
+        date={post.frontmatter.date}
         content={post.htmlAst}
       />
     </Layout>
@@ -46,6 +63,7 @@ export const aboutPageQuery = graphql`
       htmlAst
       frontmatter {
         title
+        date(formatString: "MMMM DD, YYYY")
       }
     }
   }

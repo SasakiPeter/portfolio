@@ -14,7 +14,11 @@ export default class IndexPage extends React.Component {
     const { edges: posts } = data.allMarkdownRemark;
     return (
       <Layout>
-        <section>
+        <section
+          className={css`
+            padding: 16px 0;
+          `}
+        >
           <header>
             <Paper>
               <Typography component="h2" variant="h4">
@@ -22,6 +26,7 @@ export default class IndexPage extends React.Component {
               </Typography>
             </Paper>
           </header>
+          {/* ここをScrollOverPackにする */}
           {posts.map(({ node: post }, index) => (
             <Post
               key={post.fields.slug}

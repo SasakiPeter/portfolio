@@ -27,27 +27,36 @@ const IndexPage = props => {
   const { classes, data } = props;
   return (
     <Layout>
-      <Paper>
-        <Grid container spacing={24} alignItems="center" direction="column">
-          <Grid item xs={12}>
-            <Avatar
-              alt="Sasaki Peter"
-              src="/img/icon.jpg"
-              className={classes.avatar}
-            />
-            <Typography component="h2" variant="h5" className={classes.text}>
-              Sasaki Peter
-            </Typography>
-          </Grid>
-          <Divider />
-          <Grid item xs={12}>
-            <Typography component="p" variant="body1" className={classes.text}>
-              Be the one.
-            </Typography>
-          </Grid>
-          <Divider />
-          <Grid item xs={12}>
-            {/* 興味ある分野を書くところ */}
+      <div
+        className={css`
+          padding: 24px 0;
+        `}
+      >
+        <Paper>
+          <Grid container spacing={24} alignItems="center" direction="column">
+            <Grid item xs={12}>
+              <Avatar
+                alt="Sasaki Peter"
+                src="/img/icon.jpg"
+                className={classes.avatar}
+              />
+              <Typography component="h2" variant="h5" className={classes.text}>
+                Sasaki Peter
+              </Typography>
+            </Grid>
+            <Divider />
+            <Grid item xs={12}>
+              <Typography
+                component="p"
+                variant="body1"
+                className={classes.text}
+              >
+                Be the one.
+              </Typography>
+            </Grid>
+            <Divider />
+            {/* <Grid item xs={12}>
+            興味ある分野を書くところ
             <Grid container spacing={24}>
               <Grid item xs>
                 <Button variant="contained" color="primary">
@@ -56,16 +65,17 @@ const IndexPage = props => {
               </Grid>
             </Grid>
           </Grid>
-          <Divider />
-          <Grid item xs={12}>
-            <SocialAccounts />
+          <Divider /> */}
+            <Grid item xs={12}>
+              <SocialAccounts />
+            </Grid>
+            <Divider />
+            <Grid item xs={12}>
+              <Products />
+            </Grid>
           </Grid>
-          <Divider />
-          <Grid item xs={12}>
-            <Products />
-          </Grid>
-        </Grid>
-      </Paper>
+        </Paper>
+      </div>
     </Layout>
   );
 };

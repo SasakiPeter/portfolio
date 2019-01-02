@@ -11,3 +11,10 @@
   href: https://sasakipeter.github.io/react-todoapp/
   image: /img/TodoApp.png
   language: React
+
+- name: the_sky
+  description: 目に優しい神経衰弱です
+  github: https://github.com/SasakiPeter/the_sky
+  href: https://the-sky-1912.herokuapp.com/
+  image: /img/the_sky.png
+  language: Python

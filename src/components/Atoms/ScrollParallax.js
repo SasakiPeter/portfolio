@@ -4,32 +4,28 @@ import ScrollAnim from "rc-scroll-anim";
 
 const ScrollParallax = ScrollAnim.Parallax;
 
+const ScrollOverPack = ScrollAnim.OverPack;
+
 /* 本当はqueueAnim使うべきなんだろうけど、うまくいかない */
 export default ({ children }) => (
   <ScrollParallax
     animation={[
       {
-        opacity: 1,
-        rotateX: 0,
-        scale: 1,
-        playScale: [0, 0.2]
-      },
-      {
-        opacity: 1,
-        rotateX: 0,
-        scale: 1,
-        playScale: [0, 0.6]
-      },
-      {
-        opacity: 0.5,
-        rotateX: 60,
-        scale: 0.5,
-        playScale: [0, 0.2]
+        translateX: 0,
+        translateY: 0,
+        playScale: [0, 0.3]
       }
+      // {
+      //   opacity: 1,
+      //   playScale: [0, 0.6]
+      // },
+      // {
+      //   opacity: 1,
+      //   playScale: [0, 0.2]
+      // }
     ]}
     className={css`
-      opacity: 0.5;
-      transform: perspective(80px) rotateX(-60deg) scale(0.5);
+      transform: translateX(-100%) translateY(100px);
     `}
   >
     {children}

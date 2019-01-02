@@ -18,7 +18,11 @@ export const BlogPostTemplate = ({
 }) => {
   console.log(content);
   return (
-    <section>
+    <article
+      className={css`
+        padding: 16px 0;
+      `}
+    >
       <Paper>
         {helmet || ""}
         <Typography component="h1" variant="h3">
@@ -55,7 +59,7 @@ export const BlogPostTemplate = ({
         ) : null}
         <Markdown content={content} />
       </Paper>
-    </section>
+    </article>
   );
 };
 
@@ -115,7 +119,6 @@ export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
-      html
       htmlAst
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
