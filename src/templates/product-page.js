@@ -8,7 +8,6 @@ import { Typography } from "@material-ui/core";
 import { css } from "react-emotion";
 
 export default ({ data }) => {
-  console.log(data);
   const { markdownRemark: post } = data;
   return (
     <Layout>
