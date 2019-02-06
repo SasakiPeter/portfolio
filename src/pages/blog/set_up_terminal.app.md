@@ -4,7 +4,7 @@ title: ターミナルの設定
 date: 2019-2-5
 description: ターミナルの設定
 tags:
-  - test
+  - terminal
 image: /img/chemex.jpg
 ---
 
