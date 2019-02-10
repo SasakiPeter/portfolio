@@ -7,7 +7,6 @@ tags:
   - JavaScript
   - Python
 image: /img/chemex.jpg
-
 ---
 
 ## JSとPythonの比較

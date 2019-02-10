@@ -6,7 +6,6 @@ description: samtoolsで.samを.bamに変換してSnifflesにかけSV検出
 tags:
   - Bioinfomatics
 image: /img/chemex.jpg
-
 ---
 
 ## samtools
@@ -40,8 +39,8 @@ dyld: Library not loaded: @rpath/libcrypto.1.0.0.dylib
 
 ```shell
 $ conda config --get channels
---add channels 'defaults'   # lowest priority
---add channels 'r'
+--add channels 'r'   # lowest priority
+--add channels 'defaults'
 --add channels 'bioconda'
 --add channels 'conda-forge'   # highest priority
 $ conda install samtools 
@@ -83,3 +82,4 @@ $ sniffles -s 10 -m test.bam -v output.vcf
 ```
 
 データが少なすぎると警告が出る模様。
+

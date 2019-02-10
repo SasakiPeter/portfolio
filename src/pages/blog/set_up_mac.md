@@ -6,7 +6,6 @@ description: macの設定コマンド集
 tags:
   - Mac
 image: /img/chemex.jpg
-
 ---
 
 ## Finder
