@@ -22,7 +22,7 @@ $ make
 もしくは
 
 ```shell
-$ wget https://sourceforge.net/projects/samtools/files/samtools/1.0/samtools-bcftools-htslib-1.0_x64-linux.tar.bz2/download
+$ wget https://sourceforge.net/projects/samtools/files/samtools/1.0/samtools-bcftools-htslib-1.0_x64-linux.tar.bz2/download; mv download samtools
 ```
 
 かな
