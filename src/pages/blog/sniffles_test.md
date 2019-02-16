@@ -59,6 +59,12 @@ $ conda install samtools
 > $ ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 > ```
 
+他のライブラリを入れて、samtoolsが動かなくなったら、以下のコマンドでだいたいうまくいく
+
+```shell
+$ conda update --all
+```
+
 [参考](http://yfuruta.sakura.ne.jp/blog/?p=884)
 
 ### Execution
