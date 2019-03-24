@@ -46,7 +46,7 @@ $ pip install --user pipenv
 ```shell
 $ mkdir django_tutorial && cd djando_tutorial
 $ pipenv install django　#djangoをインストール
-$ pipenv shell　＃仮想環境を起動
+$ pipenv shell　#仮想環境を起動
 ```
 
 こんな感じになればいい。
