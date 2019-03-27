@@ -693,17 +693,17 @@ Docker-compose.yml
 ```yaml
 version: '3'
 services:
-	web:
-		build: .
-		ports:
-		- "5000:5000"
-		- logvolume01:/var/log
-		link:
-		- redis
-	redis:
-		image:redis
+    web:
+        build: .
+        ports:
+        - "5000:5000"
+        - logvolume01:/var/log
+        link:
+        - redis
+    redis:
+        image:redis
 volumes:
-	logvolume01:{}
+    logvolume01:{}
 ```
 
 2つのサービスがある。webとredis
@@ -804,7 +804,7 @@ services:
         depends_on:
             - db
 volumes:
-	pgdatavol:
+    pgdatavol:
 ```
 
 コンテナ削除
