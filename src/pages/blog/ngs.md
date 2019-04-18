@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: NGSについて
-date: 2019-2-5
+date: 2019-2-5T00:00:00.000Z
 description: NGSについて
 tags:
   - test

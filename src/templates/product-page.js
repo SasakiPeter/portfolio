@@ -13,15 +13,19 @@ export default ({ data }) => {
     <Layout>
       <section
         className={css`
-          padding: 24px 0;
+          padding: 16px 0;
         `}
       >
         <Paper>
-          <Typography component="h1" variant="h3">
+          <Typography component="h1" variant="h1">
             {post.frontmatter.title}
           </Typography>
-          <Markdown content={post.htmlAst} />
-          <Products />
+          <Markdown content={post.html} />
+          <Products
+            className={css`
+              margin: 0.3em;
+            `}
+          />
         </Paper>
       </section>
     </Layout>
@@ -42,7 +46,7 @@ export const productPageQuery = graphql`
   query ProductPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
-      htmlAst
+      html
       frontmatter {
         title
       }

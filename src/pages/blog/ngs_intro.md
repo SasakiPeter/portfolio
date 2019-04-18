@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: 次世代シーケンサについて調べてみた
-date: 2019-2-10
+date: 2019-2-10T00:00:00.000Z
 description: これから次世代シーケンサーのデータ解析を行うにあたって調査。
 tags:
   - Bioinfomatics

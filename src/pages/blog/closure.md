@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: クロージャって何？
-date: 2019-2-7
+date: 2019-2-7T00:00:00.000Z
 description: クロージャについて
 tags:
   - JavaScript

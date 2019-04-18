@@ -19,7 +19,9 @@ const styles = {
     height: 100
   },
   text: {
-    textAlign: "center"
+    textAlign: "center",
+    margin: 0,
+    paddingTop: "0.3em"
   }
 };
 
@@ -40,7 +42,7 @@ const IndexPage = props => {
                 src="/img/icon.jpg"
                 className={classes.avatar}
               />
-              <Typography component="h2" variant="h5" className={classes.text}>
+              <Typography component="h2" variant="h3" className={classes.text}>
                 Sasaki Peter
               </Typography>
             </Grid>

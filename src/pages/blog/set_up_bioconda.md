@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: Biocondaの入れ方
-date: 2019-2-5
+date: 2019-2-5T00:00:00.000Z
 description: Biocondaの入れ方
 tags:
   - python

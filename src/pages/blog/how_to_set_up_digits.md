@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: DIGITSについて
-date: 2019-3-31
+date: 2019-3-31T00:00:00.000Z
 description: DIGITSについて
 tags:
   - Python

@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: Django認証
-date: 2019-4-18
+date: 2019-4-18T00:00:00.000Z
 description: Djangoの認証機能について
 tags:
   - Python

@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: JSとPythonのクロージャについてまとめ
-date: 2019-2-8
+date: 2019-2-8T00:00:00.000Z
 description: Python自体は嫌いじゃないけど、変数宣言と代入が同じ記述なの嫌い。
 tags:
   - JavaScript

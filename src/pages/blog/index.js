@@ -21,7 +21,7 @@ export default class IndexPage extends React.Component {
         >
           <header>
             <Paper>
-              <Typography component="h2" variant="h4">
+              <Typography component="h2" variant="h2">
                 Latest Posts
               </Typography>
             </Paper>
@@ -33,6 +33,8 @@ export default class IndexPage extends React.Component {
               to={post.fields.slug}
               title={post.frontmatter.title}
               excerpt={post.excerpt}
+              date={post.frontmatter.date}
+              image={post.frontmatter.image}
             />
           ))}
         </section>
@@ -65,7 +67,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             templateKey
-            date(formatString: "MMMM DD, YYYY")
+            date(formatString: "YYYY-MM-DD")
             image
           }
         }

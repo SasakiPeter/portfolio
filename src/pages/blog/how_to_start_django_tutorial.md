@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: Django入れ方等
-date: 2019-2-6
+date: 2019-2-6T00:00:00.000Z
 description: Django入れ方等
 tags:
   - python

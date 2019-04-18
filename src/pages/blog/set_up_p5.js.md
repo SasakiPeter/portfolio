@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: p5.js始めるよ
-date: 2019-2-8
+date: 2019-2-8T00:00:00.000Z
 description: p5.js始めるためのコマンド
 tags:
   - JavaScript

@@ -33,10 +33,19 @@ export default () => (
       }
     `}
     render={data => (
-      <Grid container spacing={24}>
+      <Grid
+        container
+        className={css`
+          margin: 1em 0;
+        `}
+      >
         {data.allProductsYaml.edges.map(({ node }, index) => (
           <Grid item xs key={node.id}>
-            <Card>
+            <Card
+              className={css`
+                margin: 1em;
+              `}
+            >
               <CardActionArea href={node.href}>
                 <CardMedia
                   // component="img"
@@ -47,7 +56,7 @@ export default () => (
                   title="Contemplative Reptile"
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="h4">
+                  <Typography gutterBottom variant="h4" component="h4">
                     {node.name}
                   </Typography>
                   <Typography component="p">{node.description}</Typography>

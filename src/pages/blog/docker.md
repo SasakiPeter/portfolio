@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: Dockerの使い方
-date: 2019-3-26
+date: 2019-3-26T00:00:00.000Z
 description: Dockerの使い方
 tags:
   - Python

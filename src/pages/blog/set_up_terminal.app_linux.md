@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: Linuxサーバーでzsh使いたい
-date: 2019-2-6
+date: 2019-2-6T00:00:00.000Z
 description: Linuxサーバーでzsh使う方法について考える
 tags:
   - terminal

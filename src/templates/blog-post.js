@@ -13,6 +13,7 @@ export const BlogPostTemplate = ({
   description,
   tags,
   image,
+  date,
   title,
   helmet
 }) => {
@@ -25,11 +26,11 @@ export const BlogPostTemplate = ({
     >
       <Paper>
         {helmet || ""}
-        <Typography component="h1" variant="h3">
+        <Typography component="h1" variant="h1">
           {title}
         </Typography>
+        <Typography component="p">更新日: {date}</Typography>
         <Typography component="p">{description}</Typography>
-        <img src={image} alt="" />
         {tags && tags.length ? (
           // marginの大きさが気にくわないので、要リファクタリング
           <ul
@@ -57,6 +58,7 @@ export const BlogPostTemplate = ({
             ))}
           </ul>
         ) : null}
+        {/* <img src={image} alt="" /> */}
         <Markdown content={content} />
       </Paper>
     </article>
@@ -79,8 +81,8 @@ const BlogPost = ({ data }) => {
   return (
     <Layout>
       <BlogPostTemplate
-        // content={post.html}
-        content={post.htmlAst}
+        content={post.html}
+        // content={post.htmlAst}
         // contentComponent={HTMLContent}
         description={post.frontmatter.description}
         helmet={
@@ -102,6 +104,7 @@ const BlogPost = ({ data }) => {
         }
         tags={post.frontmatter.tags}
         image={post.frontmatter.image}
+        date={post.frontmatter.date}
         title={post.frontmatter.title}
       />
     </Layout>
@@ -119,9 +122,9 @@ export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
       id
-      htmlAst
+      html
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY-MM-DD")
         title
         description
         tags

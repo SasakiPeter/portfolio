@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: DockerでDjango用のサーバーを構築する
-date: 2019-3-25
+date: 2019-3-25T00:00:00.000Z
 description: DockerでDjango用のサーバーを構築する
 tags:
   - Docker

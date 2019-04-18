@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: Django RESTfulAPIについて
-date: 2019-4-1
+date: 2019-4-1T00:00:00.000Z
 description: Django RESTfulAPIについて
 tags:
   - Python
