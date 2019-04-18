@@ -34,7 +34,7 @@ class TagRoute extends React.Component {
         >
           <Paper>
             <Helmet title={`${tag} | ${title}`} />
-            <Typography component="h1" variant="h3">
+            <Typography component="h1" variant="h1">
               {tagHeader}
             </Typography>
           </Paper>

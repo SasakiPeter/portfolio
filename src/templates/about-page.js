@@ -13,21 +13,11 @@ export const AboutPageTemplate = ({ title, date, content }) => (
     `}
   >
     <Paper>
-      <Grid container spacing={16}>
-        <Grid item xs={12}>
-          <Typography component="h1" variant="h3">
-            {title}
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Typography component="p" variant="h5">
-            {date}
-          </Typography>
-        </Grid>
-        <Grid item xs={12}>
-          <Markdown content={content} />
-        </Grid>
-      </Grid>
+      <Typography component="h1" variant="h1">
+        {title}
+      </Typography>
+      <Typography component="p">更新日: {date}</Typography>
+      <Markdown content={content} />
     </Paper>
   </section>
 );
@@ -45,7 +35,7 @@ const AboutPage = ({ data }) => {
       <AboutPageTemplate
         title={post.frontmatter.title}
         date={post.frontmatter.date}
-        content={post.htmlAst}
+        content={post.html}
       />
     </Layout>
   );
@@ -60,10 +50,10 @@ export default AboutPage;
 export const aboutPageQuery = graphql`
   query AboutPage($id: String!) {
     markdownRemark(id: { eq: $id }) {
-      htmlAst
+      html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
+        date(formatString: "YYYY-MM-DD")
       }
     }
   }

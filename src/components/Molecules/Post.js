@@ -3,17 +3,16 @@ import { Link } from "gatsby";
 import { Paper, ScrollParallax } from "../Atoms";
 import { Typography } from "@material-ui/core";
 
-export default ({ to, title, excerpt }) => (
+export default ({ to, title, excerpt, date, image }) => (
   <ScrollParallax>
     <article>
       <Link to={to}>
         <Paper>
-          <Typography component="h3" variant="h5">
+          <Typography component="h3" variant="h3">
             {title}
           </Typography>
-          {/* <span>{post.frontmatter.date}</span> */}
+          <Typography component="p">更新日: {date}</Typography>
           <Typography component="p">{excerpt}</Typography>
-          {/* <img src={post.frontmatter.image} alt="hoge" /> */}
         </Paper>
       </Link>
     </article>

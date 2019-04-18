@@ -103,7 +103,7 @@ class Navbar extends React.Component {
                   ))}
                 </Menu>
                 <Typography
-                  variant="h6"
+                  variant="h3"
                   component="h1"
                   color="inherit"
                   className={classes.grow}

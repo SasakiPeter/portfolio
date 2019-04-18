@@ -46,4 +46,11 @@ const renderAst = new rehypeReact({
   }
 }).Compiler;
 
-export default ({ content }) => renderAst(content);
+// export default ({ content }) => renderAst(content);
+
+export default ({ content }) => (
+  <div
+    className="markdown-body"
+    dangerouslySetInnerHTML={{ __html: content }}
+  />
+);

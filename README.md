@@ -1,5 +1,14 @@
 # Portfolio
 
-My portfolio made with React, Gatsby, Netlify.
+Guide My Portfolio and My Blogs.
 
-My website is still under construction, so come back later.
+## Main Technology Stack
+
+* React
+* GraphQL
+* Material-UI
+* Netlify
+
+
+
+

@@ -1,55 +1,20 @@
 ---
 templateKey: blog-post
-title: ターミナルの設定
-date: 2019-2-5T00:00:00.000Z
-description: ターミナルの設定
+title: Linuxサーバーでzsh使いたい
+date: 2019-2-6T00:00:00.000Z
+description: Linuxサーバーでzsh使う方法について考える
 tags:
   - terminal
 image: /img/chemex.jpg
 ---
 
-## Homebrewを入れる
+ssh接続したLinux上だとbrew使えないし、その代替品を入れたりやsudoコマンドを使う権限がない場合、どうするか。
 
-```shell
-$ xcode-select --install
-$ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-```
-
-> ここでbrewコマンドでインストールするものは、最初にまとめて入れておくと良い
->
-> ```shell
-> $ brew install ricty wget zsh git 
-> $ brew update
-> ```
-
-## Rictyフォントを入れる
-
-```shell
-$ brew install ricty
-$ cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
-$ fc-cache -vf
-```
-
-あとは、Terminal.appの環境設定から変更できるはず。
-
-> もしかしたら、最初に以下のコマンドが必要かも
->
-> ```shell
-> $ brew tap sanemat/font
-> ```
+ローカルではzsh使えるようにしても、いざLinuxサーバーに入ると、bashになってしまって悲しい。フォントも入れようと思ったが、面倒すぎてやめた。
 
 ## [Iceberg](http://cocopon.github.io/iceberg.vim/)を入れる
 
-### Linuxの場合
-
 ```shell
-$ wget https://gist.github.com/cocopon/a04be63f5e0856daa594702299c13160/archive/dd2499198fd1f5e1373167769f7da28a7e1a2152.zip -O temp.zip && unzip temp.zip && rm -f temp.zip
-```
-
-### Macの場合
-
-```shell
-$ brew install wget
 $ wget https://gist.github.com/cocopon/a04be63f5e0856daa594702299c13160/archive/dd2499198fd1f5e1373167769f7da28a7e1a2152.zip -O temp.zip && unzip temp.zip && rm -f temp.zip
 ```
 
@@ -57,22 +22,22 @@ Terminal.appの環境設定→プロファイル→設定→読み込み→Icebu
 
 ## zshを入れる
 
-### installation
+### Installation
 
 ```shell
-$ brew install zsh
-$ sudo sh -c "echo '/usr/local/bin/zsh' >> /etc/shells"
-$ chsh -s /usr/local/bin/zsh
+$ cd src
+$ wget https://sourceforge.net/projects/zsh/files/zsh/5.7.1/zsh-5.7.1.tar.xz/download -O zsh-5.7.1.tar.xz;tar xvf zsh-5.7.1.tar.xz;rm zsh-5.7.1.tar.xz;cd zsh-5.7.1;
+$ ./configure
+$ make
+$ cd bin;ln -s /home/username/src/zsh zsh
 ```
 
 ### Setting
 
 ```shell
 $ vi ~/.zshrc
-export PATH="$PATH:$HOME/Applications/Visual Studio Code.app/Contents/Resour    ces/app/bin"↲
-export PATH=$PATH:$HOME/.config/yarn/global/node_modules/.bin↲
+export PATH=$PATH:/home/username/bin
 autoload -Uz compinit && compinit↲
-alias typora="open -a typora"
 mkcd(){mkdir $1 && cd $1}↲
 $ source ~/.zshrc
 ```
@@ -82,7 +47,6 @@ $ source ~/.zshrc
 ### Installation
 
 ```shell
-$ brew install git
 $ git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 $ setopt EXTENDED_GLOB
 for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
@@ -125,3 +89,4 @@ zstyle ':prezto:load' pmodule \
   
 $ source ~/.zpreztorc
 ```
+

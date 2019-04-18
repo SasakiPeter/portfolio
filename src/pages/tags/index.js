@@ -18,7 +18,7 @@ const TagsPage = ({
     <section>
       <Helmet title={`Tags | ${title}`} />
       <Paper>
-        <Typography component="h2" variant="h4">
+        <Typography component="h2" variant="h2">
           Tags
         </Typography>
         <ul>

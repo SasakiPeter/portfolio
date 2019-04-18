@@ -12,9 +12,6 @@ const TemplateWrapper = ({ children }) => (
     <CssBaseline />
     <MuiThemeProvider theme={theme}>
       <Helmet title="Home | Pharmaceutical Programmer Peter" />
-      <Typography component="p" variant="h5" color="error">
-        My website is still under construction, so come back later.
-      </Typography>
       <Navbar />
       {children}
       {/* <Footer /> */}
