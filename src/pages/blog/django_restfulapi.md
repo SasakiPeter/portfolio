@@ -1,3 +1,13 @@
+---
+templateKey: blog-post
+title: Django RESTfulAPIについて
+date: 2019-4-1
+description: Django RESTfulAPIについて
+tags:
+  - Python
+image: /img/chemex.jpg
+---
+
 いい感じに書き下したviews.py例
 
 ```python

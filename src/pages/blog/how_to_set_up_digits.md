@@ -1,3 +1,13 @@
+---
+templateKey: blog-post
+title: DIGITSについて
+date: 2019-3-31
+description: DIGITSについて
+tags:
+  - Python
+image: /img/chemex.jpg
+---
+
 # Digits
 
 ​	

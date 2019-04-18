@@ -1,3 +1,13 @@
+---
+templateKey: blog-post
+title: Django認証
+date: 2019-4-18
+description: Djangoの認証機能について
+tags:
+  - Python
+image: /img/chemex.jpg
+---
+
 ## Djangoの認証機能の実装
 
 ログイン後にリダイレクトするURLを設定することができるらしい。

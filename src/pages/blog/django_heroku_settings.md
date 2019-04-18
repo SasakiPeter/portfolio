@@ -1,3 +1,13 @@
+---
+templateKey: blog-post
+title: DjangoをHeroku上で動かす
+date: 2019-3-24
+description: DjangoをHeroku上で動かす
+tags:
+  - Python
+image: /img/chemex.jpg
+---
+
 ## Djangoを Heroku上で動かしたい
 
 DjangoをHerokuにデプロイするのはそんなに大変じゃないんだけど、データベースをちゃんと使えるようにするのに割と苦労した時のメモ。

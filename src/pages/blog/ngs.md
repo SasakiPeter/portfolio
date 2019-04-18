@@ -1,8 +1,8 @@
 ---
 templateKey: blog-post
-title: ロングリードアセンブリ
+title: NGSについて
 date: 2019-2-5
-description: ロングリードアセンブリ
+description: NGSについて
 tags:
   - test
 image: /img/chemex.jpg
